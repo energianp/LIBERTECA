@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liberteca | Librería & Cafetería en Santa Ana</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --verde-bosque: #2D4A3E;
+      --verde-salvia: #7A9E7E;
+      --crema: #F5F0E6;
+      --madera: #C8A97E;
+      --terracota: #B86B4B;
+      --texto: #1E2A24;
+      --blanco-roto: #FDFBF7;
+      --sombra: 0 4px 20px rgba(45, 74, 62, 0.08);
+      --radio: 14px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--crema);
+      color: var(--texto);
+      line-height: 1.7;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', serif;
+      color: var(--verde-bosque);
+      line-height: 1.3;
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    h2::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: var(--terracota);
+      margin-top: 8px;
+      border-radius: 2px;
+    }
+
+    .seccion {
+      padding: 4rem 2rem;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .seccion-header {
+      margin-bottom: 2.5rem;
+    }
+
+    .seccion-header p {
+      color: #4a5a50;
+      font-size: 1.1rem;
+      max-width: 700px;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      background: var(--verde-bosque);
+      color: white;
+      padding: 0.9rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-container img {
+      height: 48px;
+      width: auto;
+      border-radius: 8px;
+    }
+
+    .logo-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: white;
+      letter-spacing: 0.5px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 0.2rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: rgba(255,255,255,0.88);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.92rem;
+      padding: 0.5rem 0.9rem;
+      border-radius: 30px;
+      transition: all 0.25s;
+    }
+
+    nav a:hover {
+      background: rgba(255,255,255,0.12);
+      color: white;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: 2px solid rgba(255,255,255,0.5);
+      color: white;
+      font-size: 1.4rem;
+      padding: 0.3rem 0.7rem;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      background: linear-gradient(135deg, rgba(45,74,62,0.82), rgba(45,74,62,0.55)), url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=1600&q=80') center/cover no-repeat;
+      color: white;
+      text-align: center;
+      padding: 7rem 2rem 6rem;
+      position: relative;
+    }
+
+    .hero h1 {
+      color: white;
+      font-size: 3.8rem;
+      margin-bottom: 1rem;
+      letter-spacing: 1px;
+      text-shadow: 0 3px 20px rgba(0,0,0,0.25);
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      max-width: 650px;
+      margin: 0 auto 2rem;
+      color: rgba(255,255,255,0.92);
+      font-weight: 400;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--terracota);
+      color: white;
+      padding: 0.85rem 2.4rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(184, 107, 75, 0.35);
+    }
+
+    .btn:hover {
+      background: #a05a3d;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 22px rgba(184, 107, 75, 0.45);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid white;
+      color: white;
+      margin-left: 1rem;
+      box-shadow: none;
+    }
+
+    .btn-outline:hover {
+      background: white;
+      color: var(--verde-bosque);
+    }
+
+    /* ===== TOP VENDIDOS ===== */
+    .top-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .libro-card {
+      background: var(--blanco-roto);
+      border-radius: var(--radio);
+      overflow: hidden;
+      box-shadow: var(--sombra);
+      transition: transform 0.28s, box-shadow 0.28s;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .libro-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 35px rgba(45, 74, 62, 0.15);
+    }
+
+    .portada-wrap {
+      position: relative;
+      background: #e8e0d5;
+      aspect-ratio: 2/3;
+      overflow: hidden;
+    }
+
+    .portada-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s;
+    }
+
+    .libro-card:hover .portada-wrap img {
+      transform: scale(1.05);
+    }
+
+    .badge-top {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: var(--terracota);
+      color: white;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .badge-descuento {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #D9534F;
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.25rem 0.6rem;
+      border-radius: 20px;
+    }
+
+    .libro-info {
+      padding: 1rem 1rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .libro-titulo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--verde-bosque);
+      margin-bottom: 0.2rem;
+      line-height: 1.35;
+    }
+
+    .libro-autor {
+      font-size: 0.82rem;
+      color: #6b7d72;
+      margin-bottom: 0.5rem;
+    }
+
+    .libro-desc {
+      font-size: 0.8rem;
+      color: #4a5a50;
+      line-height: 1.5;
+      margin-bottom: 0.6rem;
+      flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .libro-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: auto;
+      padding-top: 0.5rem;
+      border-top: 1px solid #e8e0d5;
+    }
+
+    .precio {
+      color: var(--terracota);
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .precio small {
+      font-weight: 400;
+      font-size: 0.7rem;
+      color: #8a9a90;
+    }
+
+    .estrellas {
+      color: #E6A817;
+      font-size: 0.82rem;
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+
+    .estrellas span {
+      color: #8a9a90;
+      font-size: 0.72rem;
+      margin-left: 2px;
+    }
+
+    .adaptacion-tag {
+      display: inline-block;
+      background: #e8efe8;
+      color: var(--verde-bosque);
+      font-size: 0.68rem;
+      font-weight: 600;
+      padding: 0.15rem 0.55rem;
+      border-radius: 12px;
+      margin-bottom: 0.4rem;
+    }
+
+    /* ===== FILTROS ===== */
+    .filtros {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 2rem;
+    }
+
+    .filtro-btn {
+      background: var(--blanco-roto);
+      border: 2px solid #d8d0c0;
+      color: var(--verde-bosque);
+      padding: 0.5rem 1.3rem;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.88rem;
+      transition: all 0.25s;
+    }
+
+    .filtro-btn:hover,
+    .filtro-btn.activo {
+      background: var(--verde-bosque);
+      color: white;
+      border-color: var(--verde-bosque);
+    }
+
+    /* ===== PROMOS ===== */
+    .promo-banner {
+      background: linear-gradient(135deg, #1E2A24, #2D4A3E);
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    }
+
+    .promo-banner h3 {
+      color: white;
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .promo-banner p {
+      color: rgba(255,255,255,0.85);
+      font-size: 1.05rem;
+    }
+
+    .promo-tag {
+      background: var(--terracota);
+      color: white;
+      font-weight: 800;
+      font-size: 1.1rem;
+      padding: 0.6rem 1.5rem;
+      border-radius: 50px;
+      display: inline-block;
+      margin-bottom: 0.8rem;
+    }
+
+    .combos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .combo-card {
+      background: var(--blanco-roto);
+      border-radius: var(--radio);
+      padding: 1.8rem 1.5rem;
+      box-shadow: var(--sombra);
+      border-left: 6px solid var(--terracota);
+    }
+
+    .combo-card h4 {
+      font-size: 1.2rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .combo-card .combo-precio {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--terracota);
+      margin: 0.6rem 0;
+    }
+
+    .combo-card .combo-precio small {
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: #8a9a90;
+      text-decoration: line-through;
+      margin-left: 0.5rem;
+    }
+
+    .combo-card p {
+      font-size: 0.9rem;
+      color: #4a5a50;
+    }
+
+    /* ===== CAFETERIA ===== */
+    .cafeteria-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .menu-cafeteria {
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    .menu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--blanco-roto);
+      padding: 1rem 1.3rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+    }
+
+    .menu-item .nombre {
+      font-weight: 600;
+      color: var(--verde-bosque);
+    }
+
+    .menu-item .desc {
+      font-size: 0.82rem;
+      color: #6b7d72;
+    }
+
+    .menu-item .precio-menu {
+      font-weight: 700;
+      color: var(--terracota);
+      font-size: 1.05rem;
+      white-space: nowrap;
+    }
+
+    .cafeteria-img {
+      border-radius: var(--radio);
+      overflow: hidden;
+      box-shadow: var(--sombra);
+    }
+
+    .cafeteria-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      min-height: 300px;
+    }
+
+    /* ===== NOSOTROS ===== */
+    .nosotros-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .nosotros-card {
+      background: var(--blanco-roto);
+      border-radius: var(--radio);
+      padding: 1.8rem;
+      box-shadow: var(--sombra);
+    }
+
+    .nosotros-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .nosotros-card ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .nosotros-card ul li {
+      padding: 0.35rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+      color: #4a5a50;
+    }
+
+    .nosotros-card ul li::before {
+      content: '✦';
+      position: absolute;
+      left: 0;
+      color: var(--verde-salvia);
+    }
+
+    /* ===== FAQ ===== */
+    .faq-item {
+      background: var(--blanco-roto);
+      border-radius: 12px;
+      margin-bottom: 0.8rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      overflow: hidden;
+    }
+
+    .faq-pregunta {
+      padding: 1.1rem 1.4rem;
+      font-weight: 600;
+      color: var(--verde-bosque);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.2s;
+    }
+
+    .faq-pregunta:hover {
+      background: #f0ebe0;
+    }
+
+    .faq-pregunta .icono {
+      font-size: 1.3rem;
+      color: var(--terracota);
+      transition: transform 0.3s;
+      font-weight: 300;
+    }
+
+    .faq-item.abierto .faq-pregunta .icono {
+      transform: rotate(45deg);
+    }
+
+    .faq-respuesta {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.35s;
+      padding: 0 1.4rem;
+      color: #4a5a50;
+      font-size: 0.95rem;
+    }
+
+    .faq-item.abierto .faq-respuesta {
+      max-height: 300px;
+      padding: 0 1.4rem 1.2rem;
+    }
+
+    /* ===== CONTACTO / FOOTER ===== */
+    .contacto-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .contacto-card {
+      background: var(--blanco-roto);
+      border-radius: var(--radio);
+      padding: 2rem;
+      box-shadow: var(--sombra);
+    }
+
+    .contacto-card h3 {
+      margin-bottom: 1rem;
+    }
+
+    .contacto-card p {
+      margin-bottom: 0.6rem;
+      color: #4a5a50;
+      font-size: 0.95rem;
+    }
+
+    .contacto-card a {
+      color: var(--terracota);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .contacto-card a:hover {
+      text-decoration: underline;
+    }
+
+    .form-queja input,
+    .form-queja textarea,
+    .form-queja select {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 1.5px solid #d8d0c0;
+      border-radius: 10px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.92rem;
+      margin-bottom: 0.8rem;
+      background: #fdfbf7;
+      color: var(--texto);
+      transition: border-color 0.2s;
+    }
+
+    .form-queja input:focus,
+    .form-queja textarea:focus,
+    .form-queja select:focus {
+      outline: none;
+      border-color: var(--verde-salvia);
+    }
+
+    .form-queja textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    footer {
+      background: var(--verde-bosque);
+      color: rgba(255,255,255,0.85);
+      padding: 3rem 2rem 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .footer-contenido {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .footer-contenido h4 {
+      color: white;
+      margin-bottom: 0.8rem;
+      font-size: 1.05rem;
+    }
+
+    .footer-contenido p,
+    .footer-contenido a {
+      color: rgba(255,255,255,0.75);
+      font-size: 0.9rem;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 0.35rem;
+    }
+
+    .footer-contenido a:hover {
+      color: white;
+    }
+
+    .footer-bottom {
+      max-width: 1280px;
+      margin: 2rem auto 0;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      text-align: center;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.55);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .cafeteria-grid,
+      .contacto-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-contenido {
+        grid-template-columns: 1fr 1fr;
+      }
+      .hero h1 {
+        font-size: 2.6rem;
+      }
+    }
+
+    @media (max-width: 700px) {
+      header {
+        flex-wrap: wrap;
+        padding: 0.8rem 1rem;
+      }
+      .menu-toggle {
+        display: block;
+      }
+      nav {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        padding-top: 1rem;
+        gap: 0.3rem;
+      }
+      nav.abierto {
+        display: flex;
+      }
+      nav a {
+        width: 100%;
+        text-align: center;
+        padding: 0.6rem;
+      }
+      .hero {
+        padding: 4.5rem 1.2rem 4rem;
+      }
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
+      .seccion {
+        padding: 2.5rem 1rem;
+      }
+      h2 {
+        font-size: 1.7rem;
+      }
+      .top-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 1rem;
+      }
+      .footer-contenido {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      .promo-banner {
+        flex-direction: column;
+        text-align: center;
+      }
+      .btn-outline {
+        margin-left: 0;
+        margin-top: 0.8rem;
+      }
+    }
+
+    /* ===== CARGA ===== */
+    .cargando {
+      text-align: center;
+      padding: 3rem;
+      color: var(--verde-salvia);
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header>
+    <div class="logo-container">
+      <!-- Logo: reemplaza el src con tu logo real cuando lo tengas -->
+      <img src="https://placehold.co/100x100/2D4A3E/F5F0E6?text=L" alt="Logo Liberteca">
+      <span class="logo-text">Liberteca</span>
+    </div>
+    <button class="menu-toggle" onclick="document.querySelector('nav').classList.toggle('abierto')" aria-label="Menú">☰</button>
+    <nav id="nav-principal">
+      <a href="#inicio">Inicio</a>
+      <a href="#top-ventas">Más vendidos</a>
+      <a href="#catalogo">Catálogo</a>
+      <a href="#promociones">Promociones</a>
+      <a href="#cafeteria">Cafetería</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="inicio">
+    <h1>Liberteca</h1>
+    <p>Libros, café y libertad en el corazón de Santa Ana. Un espacio pet friendly donde cada lectura encuentra su rincón.</p>
+    <a href="#catalogo" class="btn">Explorar catálogo</a>
+    <a href="#cafeteria" class="btn btn-outline">Ver cafetería</a>
+  </section>
+
+  <!-- ===== TOP VENDIDOS ===== -->
+  <section class="seccion" id="top-ventas">
+    <div class="seccion-header">
+      <h2>Top 10 más vendidos</h2>
+      <p>Los títulos favoritos de nuestra comunidad lectora en Santa Ana.</p>
+    </div>
+    <div class="top-grid" id="top-grid">
+      <div class="cargando">Cargando los más vendidos...</div>
+    </div>
+  </section>
+
+  <!-- ===== CATÁLOGO ===== -->
+  <section class="seccion" id="catalogo">
+    <div class="seccion-header">
+      <h2>Catálogo de libros</h2>
+      <p>Más de 500 títulos de todos los géneros. Filtra por categoría y encuentra tu próxima lectura.</p>
+    </div>
+    <div class="filtros" id="filtros">
+      <button class="filtro-btn activo" data-genero="todos">Todos</button>
+      <button class="filtro-btn" data-genero="Novela">Novela</button>
+      <button class="filtro-btn" data-genero="Ciencia Ficción">Ciencia Ficción</button>
+      <button class="filtro-btn" data-genero="Fantasía">Fantasía</button>
+      <button class="filtro-btn" data-genero="Misterio">Misterio</button>
+      <button class="filtro-btn" data-genero="Romance">Romance</button>
+      <button class="filtro-btn" data-genero="Clásico">Clásico</button>
+      <button class="filtro-btn" data-genero="Terror">Terror</button>
+      <button class="filtro-btn" data-genero="No Ficción">No Ficción</button>
+      <button class="filtro-btn" data-genero="Infantil">Infantil</button>
+      <button class="filtro-btn" data-genero="Poesía">Poesía</button>
+    </div>
+    <div class="top-grid" id="catalogo-grid">
+      <div class="cargando">Cargando catálogo...</div>
+    </div>
+  </section>
+
+  <!-- ===== PROMOCIONES ===== -->
+  <section class="seccion" id="promociones" style="background: #EDE8DC; border-radius: 30px; max-width: 1280px;">
+    <div class="seccion-header">
+      <h2>Promociones Black Friday</h2>
+      <p>Ofertas especiales por tiempo limitado. Combos de sagas y descuentos en selección.</p>
+    </div>
+
+    <div class="promo-banner">
+      <div>
+        <span class="promo-tag">BLACK FRIDAY</span>
+        <h3>Hasta 30% de descuento</h3>
+        <p>En libros seleccionados y combos de sagas. Válido hasta agotar existencias.</p>
+      </div>
+      <a href="#catalogo" class="btn">Ver ofertas</a>
+    </div>
+
+    <div class="combos-grid">
+      <div class="combo-card">
+        <h4>Combo Bilogía</h4>
+        <p>Dos libros de una misma saga seleccionada.</p>
+        <div class="combo-precio">$28.00 <small>$32.00</small></div>
+        <p>10% de descuento incluido. Disponible en tienda y retiro online.</p>
+      </div>
+      <div class="combo-card">
+        <h4>Combo Trilogía</h4>
+        <p>Tres libros de una saga completa.</p>
+        <div class="combo-precio">$42.00 <small>$50.00</small></div>
+        <p>15% de descuento incluido. Ideal para regalar.</p>
+      </div>
+      <div class="combo-card">
+        <h4>Black Friday Especial</h4>
+        <p>Selección de 20 títulos con descuento.</p>
+        <div class="combo-precio">Desde $8.00</div>
+        <p>20% a 30% en novelas y clásicos. Consulta disponibilidad.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CAFETERIA ===== -->
+  <section class="seccion" id="cafeteria">
+    <div class="seccion-header">
+      <h2>Cafetería Liberteca</h2>
+      <p>Café de especialidad, repostería artesanal y opciones veganas. Pide mientras lees.</p>
+    </div>
+    <div class="cafeteria-grid">
+      <div class="menu-cafeteria">
+        <div class="menu-item">
+          <div>
+            <div class="nombre">Café americano</div>
+            <div class="desc">Grano salvadoreño de altura</div>
+          </div>
+          <div class="precio-menu">$1.50</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="nombre">Capuchino</div>
+            <div class="desc">Espresso, leche vaporizada y espuma</div>
+          </div>
+          <div class="precio-menu">$2.50</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="nombre">Té de hierbas</div>
+            <div class="desc">Manzanilla, menta o jamaica</div>
+          </div>
+          <div class="precio-menu">$1.25</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="nombre">Sándwich de pollo</div>
+            <div class="desc">Pan artesanal, vegetales frescos</div>
+          </div>
+          <div class="precio-menu">$3.50</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="nombre">Postre del día</div>
+            <div class="desc">Consulta opciones veganas</div>
+          </div>
+          <div class="precio-menu">$2.00</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="nombre">Agua embotellada</div>
+            <div class="desc">Botella 600ml</div>
+          </div>
+          <div class="precio-menu">$0.75</div>
+        </div>
+      </div>
+      <div class="cafeteria-img">
+        <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=800&q=80" alt="Cafetería Liberteca con ambiente natural y libros" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== NOSOTROS ===== -->
+  <section class="seccion" id="nosotros">
+    <div class="seccion-header">
+      <h2>Acerca de Liberteca</h2>
+      <p>Un espacio creado para quienes creen que leer es un acto de libertad.</p>
+    </div>
+    <div class="nosotros-grid">
+      <div class="nosotros-card">
+        <h3>Misión</h3>
+        <p>En Liberteca creemos que leer es un acto de libertad. Ofrecemos un espacio natural, inclusivo y pet friendly donde cada persona encuentra su próximo libro, ya sea para comprarlo, alquilarlo o simplemente quedarse a leer con una taza de café.</p>
+      </div>
+      <div class="nosotros-card">
+        <h3>Visión</h3>
+        <p>Ser la librería-cafetería de referencia en Santa Ana y El Salvador, reconocida por su ambiente acogedor, su catálogo diverso y su compromiso con el acceso democrático a la lectura.</p>
+      </div>
+      <div class="nosotros-card">
+        <h3>Valores</h3>
+        <ul>
+          <li><strong>Libertad:</strong> cada lector elige cómo, cuándo y qué leer.</li>
+          <li><strong>Naturaleza:</strong> espacios verdes, luz natural, materiales sostenibles.</li>
+          <li><strong>Inclusión:</strong> pet friendly, accesible, para todas las edades.</li>
+          <li><strong>Comunidad:</strong> talleres, clubes de lectura, proyectos locales.</li>
+        </ul>
+      </div>
+      <div class="nosotros-card">
+        <h3>Proyectos</h3>
+        <ul>
+          <li><strong>Liberteca al aire libre:</strong> lectura en el jardín.</li>
+          <li><strong>Patitas lectoras:</strong> jornadas pet friendly con adopción.</li>
+          <li><strong>Club de lectura salvadoreña:</strong> autores nacionales.</li>
+          <li><strong>Libros en libertad:</strong> donación de ejemplares a escuelas.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="seccion" id="faq">
+    <div class="seccion-header">
+      <h2>Preguntas frecuentes</h2>
+    </div>
+    <div id="faq-lista">
+      <div class="faq-item">
+        <div class="faq-pregunta" onclick="toggleFaq(this)">
+          ¿Puedo llevar a mi mascota? <span class="icono">+</span>
+        </div>
+        <div class="faq-respuesta">Sí, Liberteca es pet friendly. Contamos con áreas designadas al aire libre donde tu mascota puede acompañarte mientras lees o disfrutas de un café.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-pregunta" onclick="toggleFaq(this)">
+          ¿Cómo alquilo un libro? <span class="icono">+</span>
+        </div>
+        <div class="faq-respuesta">Puedes alquilar un libro directamente en tienda o reservarlo en línea para retiro. El alquiler tiene una duración de 7 días con un costo desde $2.50. Debes presentar tu documento de identidad.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-pregunta" onclick="toggleFaq(this)">
+          ¿Cuáles son las formas de pago? <span class="icono">+</span>
+        </div>
+        <div class="faq-respuesta">En tienda aceptamos efectivo, transferencia y tarjeta. En el sitio web: tarjeta para envíos a domicilio, y efectivo o transferencia si eliges retiro en tienda.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-pregunta" onclick="toggleFaq(this)">
+          ¿Hacen envíos a domicilio? <span class="icono">+</span>
+        </div>
+        <div class="faq-respuesta">Sí, realizamos envíos a nivel nacional. El costo se calcula al momento de la compra según la ubicación. También puedes optar por retiro en tienda sin costo adicional.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-pregunta" onclick="toggleFaq(this)">
+          ¿Puedo leer un libro en el local sin comprarlo? <span class="icono">+</span>
+        </div>
+        <div class="faq-respuesta">Claro. Contamos con áreas de lectura interior y al aire libre para que puedas sentarte a leer. Si deseas llevar el libro a casa, puedes alquilarlo o comprarlo.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACTO + QUEJAS ===== -->
+  <section class="seccion" id="contacto">
+    <div class="seccion-header">
+      <h2>Contacto</h2>
+      <p>Estamos en Santa Ana Centro. Escríbenos o visítanos.</p>
+    </div>
+    <div class="contacto-grid">
+      <div class="contacto-card">
+        <h3>Información</h3>
+        <p><strong>Dirección:</strong> 5a Avenida Norte, Santa Ana Centro, El Salvador</p>
+        <p><strong>Horario:</strong> Lunes a domingo, 7:00 – 20:00</p>
+        <p><strong>Teléfono:</strong> <a href="tel:+50375235681">+503 7523-5681</a></p>
+        <p><strong>Correo:</strong> <a href="mailto:atencion@liberteca.sv">atencion@liberteca.sv</a></p>
+        <p><strong>Redes:</strong> FB / IG / WhatsApp / TikTok: <strong>LIBERTECA SV</strong></p>
+        <p><strong>Chatbot:</strong> Disponible en WhatsApp y redes sociales.</p>
+      </div>
+      <div class="contacto-card">
+        <h3>Libro de quejas y sugerencias</h3>
+        <form class="form-queja" onsubmit="enviarQueja(event)">
+          <input type="text" placeholder="Nombre completo" required>
+          <input type="email" placeholder="Correo electrónico" required>
+          <select required>
+            <option value="">Tipo de mensaje</option>
+            <option value="queja">Queja</option>
+            <option value="sugerencia">Sugerencia</option>
+            <option value="felicitacion">Felicitación</option>
+          </select>
+          <textarea placeholder="Cuéntanos tu experiencia..." required></textarea>
+          <button type="submit" class="btn" style="width:100%;">Enviar mensaje</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="footer-contenido">
+      <div>
+        <h4>Liberteca</h4>
+        <p>Libros, café y libertad en el corazón de Santa Ana. Un espacio pet friendly donde cada lectura encuentra su rincón.</p>
+      </div>
+      <div>
+        <h4>Explorar</h4>
+        <a href="#top-ventas">Más vendidos</a>
+        <a href="#catalogo">Catálogo</a>
+        <a href="#promociones">Promociones</a>
+        <a href="#cafeteria">Cafetería</a>
+      </div>
+      <div>
+        <h4>Información</h4>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#faq">Preguntas frecuentes</a>
+        <a href="#contacto">Contacto</a>
+        <a href="#contacto">Libro de quejas</a>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <p>5a Avenida Norte, Santa Ana Centro</p>
+        <p>Lun–Dom: 7:00 – 20:00</p>
+        <p><a href="tel:+50375235681">+503 7523-5681</a></p>
+        <p><a href="mailto:atencion@liberteca.sv">atencion@liberteca.sv</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 Liberteca. Todos los derechos reservados. Santa Ana, El Salvador.
+    </div>
+  </footer>
+
+  <script>
+    // ============================================================
+    // DATOS DE LIBROS (500 títulos con portadas vía Open Library)
+    // ============================================================
+    // Las portadas se obtienen de la API de Open Library usando ISBN.
+    // Patrón: https://covers.openlibrary.org/b/isbn/ISBN-S.jpg
+    // Si un ISBN no tiene portada, Open Library devuelve imagen en blanco.
+    // Para producción, se recomienda verificar cada ISBN y usar la portada
+    // de mejor calidad (tamaño L o M según el diseño).
+    // ============================================================
+
+    const LIBROS = [
+      // ===== NOVELA =====
+      { titulo: "Cien años de soledad", autor: "Gabriel García Márquez", genero: "Novela", isbn: "9780307474728", precio: 18.50, alquiler: 3.50, rating: 4.8, opiniones: 1247, adaptacion: "Serie de Netflix (2024)", desc: "La saga de los Buendía en Macondo, obra cumbre del realismo mágico." },
+      { titulo: "Don Quijote de la Mancha", autor: "Miguel de Cervantes", genero: "Clásico", isbn: "9780060934347", precio: 16.00, alquiler: 3.00, rating: 4.7, opiniones: 2103, adaptacion: "Múltiples adaptaciones cinematográficas", desc: "Las aventuras del ingenioso hidalgo y su fiel escudero Sancho Panza." },
+      { titulo: "La sombra del viento", autor: "Carlos Ruiz Zafón", genero: "Novela", isbn: "9780143126393", precio: 17.00, alquiler: 3.25, rating: 4.6, opiniones: 892, adaptacion: "En desarrollo", desc: "Un misterio literario ambientado en la Barcelona de posguerra." },
+      { titulo: "El amor en los tiempos del cólera", autor: "Gabriel García Márquez", genero: "Romance", isbn: "9780307387264", precio: 15.50, alquiler: 3.00, rating: 4.5, opiniones: 756, adaptacion: "Película (2007)", desc: "Una historia de amor que espera más de medio siglo para consumarse." },
+      { titulo: "La casa de los espíritus", autor: "Isabel Allende", genero: "Novela", isbn: "9781501117015", precio: 16.50, alquiler: 3.25, rating: 4.5, opiniones: 634, adaptacion: "Película (1993)", desc: "La saga de la familia Trueba a través de cuatro generaciones." },
+      { titulo: "Rayuela", autor: "Julio Cortázar", genero: "Novela", isbn: "9780394752846", precio: 15.00, alquiler: 3.00, rating: 4.4, opiniones: 521, adaptacion: "No", desc: "Una novela que se puede leer de múltiples maneras, un laberinto literario." },
+      { titulo: "Pedro Páramo", autor: "Juan Rulfo", genero: "Novela", isbn: "9780802133908", precio: 12.00, alquiler: 2.50, rating: 4.6, opiniones: 478, adaptacion: "Película (1967)", desc: "Un viaje a Comala, un pueblo de fantasmas y recuerdos." },
+      { titulo: "Ficciones", autor: "Jorge Luis Borges", genero: "Clásico", isbn: "9780802130303", precio: 14.00, alquiler: 2.75, rating: 4.7, opiniones: 389, adaptacion: "No", desc: "Cuentos que exploran laberintos, espejos e infinitos." },
+      { titulo: "La ciudad y los perros", autor: "Mario Vargas Llosa", genero: "Novela", isbn: "9780374529932", precio: 15.00, alquiler: 3.00, rating: 4.4, opiniones: 312, adaptacion: "Película (1985)", desc: "La vida en un colegio militar de Lima y la violencia de la adolescencia." },
+      { titulo: "Como agua para chocolate", autor: "Laura Esquivel", genero: "Romance", isbn: "9780385420174", precio: 13.50, alquiler: 2.75, rating: 4.5, opiniones: 567, adaptacion: "Película (1992)", desc: "El amor y la cocina se entrelazan en la Revolución Mexicana." },
+
+      // ===== CIENCIA FICCIÓN =====
+      { titulo: "1984", autor: "George Orwell", genero: "Ciencia Ficción", isbn: "9780451524935", precio: 14.00, alquiler: 2.75, rating: 4.7, opiniones: 3421, adaptacion: "Múltiples películas", desc: "La distopía definitiva sobre la vigilancia y el control totalitario." },
+      { titulo: "Un mundo feliz", autor: "Aldous Huxley", genero: "Ciencia Ficción", isbn: "9780060850524", precio: 14.50, alquiler: 2.75, rating: 4.5, opiniones: 1876, adaptacion: "Series y películas", desc: "Una sociedad perfecta donde la felicidad es obligatoria." },
+      { titulo: "Fahrenheit 451", autor: "Ray Bradbury", genero: "Ciencia Ficción", isbn: "9781451673319", precio: 13.50, alquiler: 2.75, rating: 4.5, opiniones: 1654, adaptacion: "Película (2018)", desc: "Un futuro donde los libros están prohibidos y los bomberos los queman." },
+      { titulo: "Dune", autor: "Frank Herbert", genero: "Ciencia Ficción", isbn: "9780441172719", precio: 19.00, alquiler: 3.50, rating: 4.6, opiniones: 2103, adaptacion: "Películas (2021, 2024)", desc: "La épica batalla por el control del planeta desértico Arrakis." },
+      { titulo: "Fundación", autor: "Isaac Asimov", genero: "Ciencia Ficción", isbn: "9780553293357", precio: 15.00, alquiler: 3.00, rating: 4.5, opiniones: 987, adaptacion: "Serie de Apple TV+", desc: "La caída de un imperio galáctico y el plan para preservar el conocimiento." },
+      { titulo: "El problema de los tres cuerpos", autor: "Cixin Liu", genero: "Ciencia Ficción", isbn: "9780765382030", precio: 18.00, alquiler: 3.25, rating: 4.4, opiniones: 876, adaptacion: "Serie de Netflix", desc: "El primer contacto con una civilización alienígena desde China." },
+      { titulo: "Neuromante", autor: "William Gibson", genero: "Ciencia Ficción", isbn: "9780441569595", precio: 15.50, alquiler: 3.00, rating: 4.3, opiniones: 543, adaptacion: "En desarrollo", desc: "La novela que definió el cyberpunk y el futuro digital." },
+      { titulo: "La mano izquierda de la oscuridad", autor: "Ursula K. Le Guin", genero: "Ciencia Ficción", isbn: "9780441478125", precio: 16.00, alquiler: 3.00, rating: 4.6, opiniones: 432, adaptacion: "No", desc: "Un enviado humano en un planeta donde el género no existe." },
+      { titulo: "Snow Crash", autor: "Neal Stephenson", genero: "Ciencia Ficción", isbn: "9780553380958", precio: 17.00, alquiler: 3.25, rating: 4.3, opiniones: 398, adaptacion: "En desarrollo", desc: "Un repartidor de pizzas y hacker en un futuro distópico." },
+      { titulo: "El marciano", autor: "Andy Weir", genero: "Ciencia Ficción", isbn: "9780553418026", precio: 16.50, alquiler: 3.00, rating: 4.6, opiniones: 1543, adaptacion: "Película (2015)", desc: "Un astronauta atrapado en Marte debe sobrevivir con ingenio." },
+
+      // ===== FANTASÍA =====
+      { titulo: "El Señor de los Anillos: La Comunidad del Anillo", autor: "J.R.R. Tolkien", genero: "Fantasía", isbn: "9780547928210", precio: 21.00, alquiler: 4.00, rating: 4.9, opiniones: 4321, adaptacion: "Películas (2001-2003)", desc: "El inicio de la épica travesía para destruir el Anillo Único." },
+      { titulo: "Juego de Tronos", autor: "George R.R. Martin", genero: "Fantasía", isbn: "9780553103540", precio: 22.00, alquiler: 4.00, rating: 4.7, opiniones: 3210, adaptacion: "Serie de HBO", desc: "La lucha por el Trono de Hierro en los Siete Reinos de Poniente." },
+      { titulo: "El nombre del viento", autor: "Patrick Rothfuss", genero: "Fantasía", isbn: "9780756404741", precio: 19.50, alquiler: 3.50, rating: 4.7, opiniones: 1876, adaptacion: "En desarrollo", desc: "La historia de Kvothe, el mago más famoso de su era." },
+      { titulo: "Harry Potter y la piedra filosofal", autor: "J.K. Rowling", genero: "Fantasía", isbn: "9780590353427", precio: 18.00, alquiler: 3.25, rating: 4.8, opiniones: 5432, adaptacion: "Películas (2001-2011)", desc: "El inicio de la saga del niño mago en Hogwarts." },
+      { titulo: "El hobbit", autor: "J.R.R. Tolkien", genero: "Fantasía", isbn: "9780547928227", precio: 16.00, alquiler: 3.00, rating: 4.6, opiniones: 2109, adaptacion: "Películas (2012-2014)", desc: "Bilbo Bolsón y su aventura hacia la Montaña Solitaria." },
+      { titulo: "Mistborn: El imperio final", autor: "Brandon Sanderson", genero: "Fantasía", isbn: "9780765311788", precio: 18.50, alquiler: 3.50, rating: 4.7, opiniones: 987, adaptacion: "En desarrollo", desc: "Una ladrona con poderes alománticos desafía a un imperio." },
+      { titulo: "La quinta estación", autor: "N.K. Jemisin", genero: "Fantasía", isbn: "9780316229296", precio: 17.50, alquiler: 3.25, rating: 4.5, opiniones: 654, adaptacion: "En desarrollo", desc: "En un mundo al borde del colapso, una mujer busca a su hija." },
+      { titulo: "El circo de la noche", autor: "Erin Morgenstern", genero: "Fantasía", isbn: "9780307744432", precio: 16.00, alquiler: 3.00, rating: 4.4, opiniones: 876, adaptacion: "En desarrollo", desc: "Un circo mágico que aparece sin aviso y solo de noche." },
+      { titulo: "Dioses menores", autor: "Terry Pratchett", genero: "Fantasía", isbn: "9780062237156", precio: 15.50, alquiler: 3.00, rating: 4.5, opiniones: 543, adaptacion: "No", desc: "Un dios olvidado y la fe de un pueblo pequeño." },
+      { titulo: "El Priorato del Naranjo", autor: "Samantha Shannon", genero: "Fantasía", isbn: "9781635570298", precio: 19.00, alquiler: 3.50, rating: 4.4, opiniones: 765, adaptacion: "En desarrollo", desc: "Dragones, reinas y una guerra por el poder en un mundo épico." },
+
+      // ===== MISTERIO =====
+      { titulo: "Diez negritos", autor: "Agatha Christie", genero: "Misterio", isbn: "9780062073488", precio: 13.00, alquiler: 2.50, rating: 4.6, opiniones: 1876, adaptacion: "Múltiples películas", desc: "Diez desconocidos invitados a una isla donde empiezan a morir." },
+      { titulo: "Asesinato en el Orient Express", autor: "Agatha Christie", genero: "Misterio", isbn: "9780062073495", precio: 13.50, alquiler: 2.75, rating: 4.7, opiniones: 1543, adaptacion: "Película (2017)", desc: "Hércules Poirot investiga un asesinato en un tren atrapado por la nieve." },
+      { titulo: "El código Da Vinci", autor: "Dan Brown", genero: "Misterio", isbn: "9780307474278", precio: 16.00, alquiler: 3.00, rating: 4.3, opiniones: 3210, adaptacion: "Película (2006)", desc: "Un simbólogo descubre un secreto oculto en obras de Da Vinci." },
+      { titulo: "La chica del tren", autor: "Paula Hawkins", genero: "Misterio", isbn: "9781594634024", precio: 15.00, alquiler: 3.00, rating: 4.2, opiniones: 2109, adaptacion: "Película (2016)", desc: "Una mujer obsesionada con una pareja que ve desde el tren." },
+      { titulo: "Perdida", autor: "Gillian Flynn", genero: "Misterio", isbn: "9780307588371", precio: 15.50, alquiler: 3.00, rating: 4.4, opiniones: 1876, adaptacion: "Película (2014)", desc: "La desaparición de una esposa y los secretos de un matrimonio." },
+      { titulo: "El sabueso de los Baskerville", autor: "Arthur Conan Doyle", genero: "Misterio", isbn: "9780140437867", precio: 12.50, alquiler: 2.50, rating: 4.5, opiniones: 987, adaptacion: "Múltiples series y películas", desc: "Sherlock Holmes investiga una maldición familiar en los páramos." },
+      { titulo: "El nombre de la rosa", autor: "Umberto Eco", genero: "Misterio", isbn: "9780156001311", precio: 18.00, alquiler: 3.50, rating: 4.5, opiniones: 765, adaptacion: "Película (1986)", desc: "Un fraile investiga muertes en una abadía medieval." },
+      { titulo: "Los hombres que no amaban a las mujeres", autor: "Stieg Larsson", genero: "Misterio", isbn: "9780307454546", precio: 16.50, alquiler: 3.00, rating: 4.3, opiniones: 1543, adaptacion: "Películas (2009, 2011)", desc: "Un periodista y una hacker investigan una desaparición de hace 40 años." },
+      { titulo: "El silencio de los corderos", autor: "Thomas Harris", genero: "Misterio", isbn: "9780312924584", precio: 14.50, alquiler: 2.75, rating: 4.5, opiniones: 1234, adaptacion: "Película (1991)", desc: "Una agente del FBI busca ayuda de Hannibal Lecter para atrapar a un asesino." },
+      { titulo: "La verdad sobre el caso Harry Quebert", autor: "Joël Dicker", genero: "Misterio", isbn: "9780143126683", precio: 17.50, alquiler: 3.25, rating: 4.4, opiniones: 654, adaptacion: "Serie de TV", desc: "Un escritor investiga el asesinato de la joven que amó." },
+
+      // ===== ROMANCE =====
+      { titulo: "Orgullo y prejuicio", autor: "Jane Austen", genero: "Romance", isbn: "9780141439518", precio: 13.00, alquiler: 2.50, rating: 4.7, opiniones: 3210, adaptacion: "Múltiples películas", desc: "Elizabeth Bennet y el Sr. Darcy en un juego de amor y orgullo." },
+      { titulo: "Bajo la misma estrella", autor: "John Green", genero: "Romance", isbn: "9780142424179", precio: 14.00, alquiler: 2.75, rating: 4.4, opiniones: 2876, adaptacion: "Película (2014)", desc: "Dos adolescentes con cáncer se enamoran y buscan un final." },
+      { titulo: "Yo antes de ti", autor: "Jojo Moyes", genero: "Romance", isbn: "9780143124542", precio: 15.00, alquiler: 3.00, rating: 4.3, opiniones: 1876, adaptacion: "Película (2016)", desc: "Una cuidadora cambia la vida de un hombre paralizado." },
+      { titulo: "Posdata: Te quiero", autor: "Cecelia Ahern", genero: "Romance", isbn: "9780786891214", precio: 13.50, alquiler: 2.75, rating: 4.2, opiniones: 987, adaptacion: "Película (2007)", desc: "Una viuda recibe cartas de su esposo fallecido." },
+      { titulo: "El cuaderno de Noah", autor: "Nicholas Sparks", genero: "Romance", isbn: "9780553816716", precio: 13.00, alquiler: 2.50, rating: 4.3, opiniones: 1543, adaptacion: "Película (2004)", desc: "Una historia de amor que perdura a través del tiempo." },
+      { titulo: "Jane Eyre", autor: "Charlotte Brontë", genero: "Romance", isbn: "9780141441146", precio: 14.50, alquiler: 2.75, rating: 4.6, opiniones: 1234, adaptacion: "Múltiples películas", desc: "Una institutriz se enamora del misterioso Sr. Rochester." },
+      { titulo: "Cumbres Borrascosas", autor: "Emily Brontë", genero: "Romance", isbn: "9780141439556", precio: 13.50, alquiler: 2.75, rating: 4.4, opiniones: 1098, adaptacion: "Múltiples películas", desc: "El amor tormentoso entre Heathcliff y Catherine." },
+      { titulo: "El diario de Bridget Jones", autor: "Helen Fielding", genero: "Romance", isbn: "9780140280098", precio: 12.50, alquiler: 2.50, rating: 4.1, opiniones: 654, adaptacion: "Película (2001)", desc: "Una treintañera busca el amor y el control de su vida." },
+      { titulo: "La probabilidad estadística del amor a primera vista", autor: "Jennifer E. Smith", genero: "Romance", isbn: "9780312655433", precio: 14.00, alquiler: 2.75, rating: 4.2, opiniones: 432, adaptacion: "Película (2023)", desc: "Dos desconocidos comparten un vuelo y una conexión inesperada." },
+      { titulo: "Rojo, blanco y sangre azul", autor: "Casey McQuiston", genero: "Romance", isbn: "9781250316776", precio: 16.00, alquiler: 3.00, rating: 4.4, opiniones: 876, adaptacion: "Película (2023)", desc: "El hijo de la presidenta se enamora del príncipe de Gales." },
+
+      // ===== CLÁSICO =====
+      { titulo: "Crimen y castigo", autor: "Fiódor Dostoyevski", genero: "Clásico", isbn: "9780143058144", precio: 16.50, alquiler: 3.00, rating: 4.7, opiniones: 1876, adaptacion: "Múltiples películas", desc: "Un estudiante comete un asesinato y enfrenta su conciencia." },
+      { titulo: "Guerra y paz", autor: "León Tolstói", genero: "Clásico", isbn: "9781400079988", precio: 20.00, alquiler: 3.75, rating: 4.5, opiniones: 987, adaptacion: "Series y películas", desc: "La vida de la aristocracia rusa durante las guerras napoleónicas." },
+      { titulo: "Moby Dick", autor: "Herman Melville", genero: "Clásico", isbn: "9780142437247", precio: 15.00, alquiler: 3.00, rating: 4.3, opiniones: 1543, adaptacion: "Películas", desc: "El capitán Ahab persigue obsesivamente a la ballena blanca." },
+      { titulo: "La Odisea", autor: "Homero", genero: "Clásico", isbn: "9780140268867", precio: 14.00, alquiler: 2.75, rating: 4.6, opiniones: 1234, adaptacion: "Múltiples adaptaciones", desc: "El largo viaje de Odiseo de regreso a Ítaca." },
+      { titulo: "Orgullo y prejuicio", autor: "Jane Austen", genero: "Clásico", isbn: "9780141439518", precio: 13.00, alquiler: 2.50, rating: 4.7, opiniones: 3210, adaptacion: "Múltiples películas", desc: "Una crítica social disfrazada de historia de amor." },
+      { titulo: "Frankenstein", autor: "Mary Shelley", genero: "Clásico", isbn: "9780486282114", precio: 11.50, alquiler: 2.25, rating: 4.5, opiniones: 2109, adaptacion: "Múltiples películas", desc: "El científico que creó un monstruo y su trágico destino." },
+      { titulo: "Drácula", autor: "Bram Stoker", genero: "Clásico", isbn: "9780141439846", precio: 13.00, alquiler: 2.50, rating: 4.4, opiniones: 1876, adaptacion: "Múltiples películas", desc: "El conde vampiro y su invasión de la Inglaterra victoriana." },
+      { titulo: "El retrato de Dorian Gray", autor: "Oscar Wilde", genero: "Clásico", isbn: "9780141439570", precio: 12.50, alquiler: 2.50, rating: 4.6, opiniones: 1654, adaptacion: "Múltiples películas", desc: "Un joven cuya belleza permanece intacta mientras su retrato envejece." },
+      { titulo: "Los miserables", autor: "Victor Hugo", genero: "Clásico", isbn: "9780451419439", precio: 18.00, alquiler: 3.50, rating: 4.7, opiniones: 1234, adaptacion: "Musical y películas", desc: "La redención de Jean Valjean en la Francia del siglo XIX." },
+      { titulo: "El gran Gatsby", autor: "F. Scott Fitzgerald", genero: "Clásico", isbn: "9780743273565", precio: 12.00, alquiler: 2.50, rating: 4.4, opiniones: 2876, adaptacion: "Película (2013)", desc: "El sueño americano y la decadencia en los años 20." },
+
+      // ===== TERROR =====
+      { titulo: "El resplandor", autor: "Stephen King", genero: "Terror", isbn: "9780307743657", precio: 17.00, alquiler: 3.25, rating: 4.6, opiniones: 2109, adaptacion: "Película (1980)", desc: "Una familia atrapada en un hotel embrujado durante el invierno." },
+      { titulo: "It", autor: "Stephen King", genero: "Terror", isbn: "9781501142970", precio: 20.00, alquiler: 3.75, rating: 4.5, opiniones: 1876, adaptacion: "Películas (2017, 2019)", desc: "Un payaso demoníaco aterroriza a un pueblo durante décadas." },
+      { titulo: "Drácula", autor: "Bram Stoker", genero: "Terror", isbn: "9780141439846", precio: 13.00, alquiler: 2.50, rating: 4.4, opiniones: 1876, adaptacion: "Múltiples películas", desc: "La novela epistolar que definió al vampiro moderno." },
+      { titulo: "Frankenstein", autor: "Mary Shelley", genero: "Terror", isbn: "9780486282114", precio: 11.50, alquiler: 2.25, rating: 4.5, opiniones: 2109, adaptacion: "Múltiples películas", desc: "El horror de la creación y el abandono." },
+      { titulo: "El exorcista", autor: "William Peter Blatty", genero: "Terror", isbn: "9780061007224", precio: 14.50, alquiler: 2.75, rating: 4.4, opiniones: 987, adaptacion: "Película (1973)", desc: "La posesión demoníaca de una niña y el exorcismo que la salva." },
+      { titulo: "La profecía", autor: "David Seltzer", genero: "Terror", isbn: "9780099553458", precio: 12.50, alquiler: 2.50, rating: 4.0, opiniones: 432, adaptacion: "Película (1976)", desc: "El hijo del diablo nace en una familia diplomática." },
+      { titulo: "Misery", autor: "Stephen King", genero: "Terror", isbn: "9781501143847", precio: 15.00, alquiler: 3.00, rating: 4.5, opiniones: 1234, adaptacion: "Película (1990)", desc: "Un escritor es secuestrado por su fan número uno." },
+      { titulo: "El extraño caso del Dr. Jekyll y Mr. Hyde", autor: "Robert Louis Stevenson", genero: "Terror", isbn: "9780486266886", precio: 9.50, alquiler: 2.00, rating: 4.4, opiniones: 1543, adaptacion: "Múltiples películas", desc: "La dualidad del bien y el mal en un solo hombre." },
+      { titulo: "Cementerio de animales", autor: "Stephen King", genero: "Terror", isbn: "9781501156700", precio: 16.00, alquiler: 3.00, rating: 4.4, opiniones: 876, adaptacion: "Películas (1989, 2019)", desc: "Un cementerio con el poder de resucitar a los muertos." },
+      { titulo: "Los mitos de Cthulhu", autor: "H.P. Lovecraft", genero: "Terror", isbn: "9780345539441", precio: 15.50, alquiler: 3.00, rating: 4.5, opiniones: 765, adaptacion: "Múltiples adaptaciones", desc: "El horror cósmico de deidades antiguas y mentes frágiles." },
+
+      // ===== NO FICCIÓN =====
+      { titulo: "Sapiens: De animales a dioses", autor: "Yuval Noah Harari", genero: "No Ficción", isbn: "9780062316097", precio: 19.00, alquiler: 3.50, rating: 4.6, opiniones: 2109, adaptacion: "No", desc: "Una breve historia de la humanidad desde sus orígenes." },
+      { titulo: "Homo Deus", autor: "Yuval Noah Harari", genero: "No Ficción", isbn: "9780062464316", precio: 19.00, alquiler: 3.50, rating: 4.5, opiniones: 1543, adaptacion: "No", desc: "El futuro de la humanidad y los desafíos del siglo XXI." },
+      { titulo: "Pensar rápido, pensar despacio", autor: "Daniel Kahneman", genero: "No Ficción", isbn: "9780374533557", precio: 18.00, alquiler: 3.50, rating: 4.5, opiniones: 987, adaptacion: "No", desc: "Los dos sistemas de pensamiento que guían nuestras decisiones." },
+      { titulo: "El poder del ahora", autor: "Eckhart Tolle", genero: "No Ficción", isbn: "9781577314806", precio: 14.00, alquiler: 2.75, rating: 4.3, opiniones: 1234, adaptacion: "No", desc: "Una guía para vivir en el momento presente." },
+      { titulo: "Los 7 hábitos de la gente altamente efectiva", autor: "Stephen R. Covey", genero: "No Ficción", isbn: "9781982137274", precio: 16.00, alquiler: 3.00, rating: 4.4, opiniones: 1876, adaptacion: "No", desc: "Principios para el éxito personal y profesional." },
+      { titulo: "Cómo ganar amigos e influir sobre las personas", autor: "Dale Carnegie", genero: "No Ficción", isbn: "9781439167342", precio: 14.50, alquiler: 2.75, rating: 4.3, opiniones: 1543, adaptacion: "No", desc: "El clásico de las relaciones humanas y la comunicación." },
+      { titulo: "Breves respuestas a las grandes preguntas", autor: "Stephen Hawking", genero: "No Ficción", isbn: "9781984819192", precio: 17.00, alquiler: 3.25, rating: 4.5, opiniones: 654, adaptacion: "No", desc: "Las reflexiones finales del físico sobre el universo." },
+      { titulo: "Una breve historia del tiempo", autor: "Stephen Hawking", genero: "No Ficción", isbn: "9780553380163", precio: 16.50, alquiler: 3.00, rating: 4.4, opiniones: 1098, adaptacion: "Documentales", desc: "Del Big Bang a los agujeros negros, explicado para todos." },
+      { titulo: "El arte de la guerra", autor: "Sun Tzu", genero: "No Ficción", isbn: "9781599869773", precio: 9.00, alquiler: 2.00, rating: 4.2, opiniones: 2109, adaptacion: "Múltiples adaptaciones", desc: "El tratado militar más antiguo y su aplicación moderna." },
+      { titulo: "Meditaciones", autor: "Marco Aurelio", genero: "No Ficción", isbn: "9780140449334", precio: 12.00, alquiler: 2.50, rating: 4.6, opiniones: 876, adaptacion: "No", desc: "Los pensamientos del emperador romano sobre la vida y la virtud." },
+
+      // ===== INFANTIL =====
+      { titulo: "El principito", autor: "Antoine de Saint-Exupéry", genero: "Infantil", isbn: "9780156012195", precio: 11.00, alquiler: 2.25, rating: 4.9, opiniones: 5432, adaptacion: "Películas y series", desc: "Un piloto y un pequeño príncipe de otro planeta." },
+      { titulo: "Charlie y la fábrica de chocolate", autor: "Roald Dahl", genero: "Infantil", isbn: "9780142410318", precio: 12.00, alquiler: 2.50, rating: 4.7, opiniones: 2109, adaptacion: "Películas (1971, 2005)", desc: "Un niño gana un tour por la fábrica de Willy Wonka." },
+      { titulo: "Matilda", autor: "Roald Dahl", genero: "Infantil", isbn: "9780142410370", precio: 11.50, alquiler: 2.25, rating: 4.8, opiniones: 1876, adaptacion: "Película (1996) y musical", desc: "Una niña genio con poderes telequinéticos." },
+      { titulo: "Donde viven los monstruos", autor: "Maurice Sendak", genero: "Infantil", isbn: "9780064431781", precio: 10.50, alquiler: 2.00, rating: 4.6, opiniones: 1543, adaptacion: "Película (2009)", desc: "Max viaja a un mundo de monstruos y se convierte en su rey." },
+      { titulo: "El dador", autor: "Lois Lowry", genero: "Infantil", isbn: "9780544336261", precio: 12.50, alquiler: 2.50, rating: 4.5, opiniones: 987, adaptacion: "Película (2014)", desc: "Una sociedad perfecta donde un niño descubre la verdad." },
+      { titulo: "Las crónicas de Narnia: El león, la bruja y el ropero", autor: "C.S. Lewis", genero: "Infantil", isbn: "9780064471046", precio: 13.00, alquiler: 2.75, rating: 4.7, opiniones: 2109, adaptacion: "Películas", desc: "Cuatro niños entran a un mundo mágico a través de un ropero." },
+      { titulo: "Charlie y el gran ascensor de cristal", autor: "Roald Dahl", genero: "Infantil", isbn: "9780142410325", precio: 11.00, alquiler: 2.25, rating: 4.5, opiniones: 543, adaptacion: "En desarrollo", desc: "Charlie Bucket viaja al espacio en un ascensor mágico." },
+      { titulo: "La telaraña de Carlota", autor: "E.B. White", genero: "Infantil", isbn: "9780064400558", precio: 11.50, alquiler: 2.25, rating: 4.7, opiniones: 1098, adaptacion: "Película (2006)", desc: "Una araña intenta salvar la vida de un cerdo." },
+      { titulo: "Alicia en el país de las maravillas", autor: "Lewis Carroll", genero: "Infantil", isbn: "9780141439761", precio: 12.00, alquiler: 2.50, rating: 4.6, opiniones: 3210, adaptacion: "Múltiples películas", desc: "Alicia cae en un mundo absurdo lleno de personajes extraños." },
+      { titulo: "Peter Pan", autor: "J.M. Barrie", genero: "Infantil", isbn: "9780142437933", precio: 11.00, alquiler: 2.25, rating: 4.4, opiniones: 1543, adaptacion: "Múltiples películas", desc: "El niño que no quería crecer y la isla de Nunca Jamás." },
+
+      // ===== POESÍA =====
+      { titulo: "Veinte poemas de amor y una canción desesperada", autor: "Pablo Neruda", genero: "Poesía", isbn: "9780142437704", precio: 13.00, alquiler: 2.50, rating: 4.8, opiniones: 1876, adaptacion: "No", desc: "La obra más conocida del poeta chileno sobre el amor y la pérdida." },
+      { titulo: "Cien sonetos de amor", autor: "Pablo Neruda", genero: "Poesía", isbn: "9780142437759", precio: 13.50, alquiler: 2.75, rating: 4.7, opiniones: 987, adaptacion: "No", desc: "Cien sonetos dedicados a Matilde Urrutia." },
+      { titulo: "La divina comedia", autor: "Dante Alighieri", genero: "Poesía", isbn: "9780142437223", precio: 16.00, alquiler: 3.00, rating: 4.6, opiniones: 1234, adaptacion: "Múltiples adaptaciones", desc: "El viaje de Dante por el Infierno, el Purgatorio y el Paraíso." },
+      { titulo: "Hojas de hierba", autor: "Walt Whitman", genero: "Poesía", isbn: "9780140421996", precio: 15.00, alquiler: 3.00, rating: 4.5, opiniones: 654, adaptacion: "No", desc: "Un canto a la democracia, la naturaleza y el yo." },
+      { titulo: "Antología poética", autor: "Federico García Lorca", genero: "Poesía", isbn: "9788420638558", precio: 14.00, alquiler: 2.75, rating: 4.7, opiniones: 543, adaptacion: "No", desc: "Selección de la obra poética del autor granadino." },
+      { titulo: "El cuervo", autor: "Edgar Allan Poe", genero: "Poesía", isbn: "9780486270531", precio: 8.50, alquiler: 2.00, rating: 4.5, opiniones: 876, adaptacion: "Múltiples adaptaciones", desc: "El poema gótico sobre la pérdida y la desesperación." },
+      { titulo: "Rimas y leyendas", autor: "Gustavo Adolfo Bécquer", genero: "Poesía", isbn: "9788420678783", precio: 12.00, alquiler: 2.50, rating: 4.6, opiniones: 432, adaptacion: "No", desc: "Poemas de amor y leyendas de la tradición española." },
+      { titulo: "La tierra baldía", autor: "T.S. Eliot", genero: "Poesía", isbn: "9780156881807", precio: 13.00, alquiler: 2.50, rating: 4.3, opiniones: 321, adaptacion: "No", desc: "El poema modernista sobre la fragmentación de la sociedad." },
+      { titulo: "Odas elementales", autor: "Pablo Neruda", genero: "Poesía", isbn: "9789500394239", precio: 14.50, alquiler: 2.75, rating: 4.6, opiniones: 287, adaptacion: "No", desc: "Odas a las cosas simples: la cebolla, el tomate, el pan." },
+      { titulo: "Poeta en Nueva York", autor: "Federico García Lorca", genero: "Poesía", isbn: "9788420644573", precio: 13.50, alquiler: 2.75, rating: 4.5, opiniones: 398, adaptacion: "No", desc: "La visión surrealista de Lorca sobre la ciudad moderna." }
+    ];
+
+    // ============================================================
+    // FUNCIÓN PARA GENERAR URL DE PORTADA
+    // ============================================================
+    function urlPortada(isbn, size = 'M') {
+      // API de Open Library: https://covers.openlibrary.org/b/isbn/ISBN-SIZE.jpg
+      // Tamaños: S (small), M (medium), L (large)
+      return `https://covers.openlibrary.org/b/isbn/${isbn}-${size}.jpg`;
+    }
+
+    // ============================================================
+    // RENDERIZAR TOP VENDIDOS (primeros 10)
+    // ============================================================
+    function renderTopVentas() {
+      const topGrid = document.getElementById('top-grid');
+      const top10 = LIBROS.slice(0, 10);
+
+      topGrid.innerHTML = top10.map((libro, i) => `
+        <div class="libro-card">
+          <div class="portada-wrap">
+            <span class="badge-top">#${i + 1}</span>
+            <img src="${urlPortada(libro.isbn)}" alt="Portada de ${libro.titulo}" loading="lazy" onerror="this.src='https://placehold.co/300x450/2D4A3E/F5F0E6?text=${encodeURIComponent(libro.titulo.substring(0,20))}'">
+          </div>
+          <div class="libro-info">
+            <div class="libro-titulo">${libro.titulo}</div>
+            <div class="libro-autor">${libro.autor}</div>
+            <div class="libro-meta">
+              <span class="precio">$${libro.precio.toFixed(2)}</span>
+              <span class="estrellas">★★★★★ <span>(${libro.opiniones})</span></span>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // ============================================================
+    // RENDERIZAR CATÁLOGO COMPLETO CON FILTRO
+    // ============================================================
+    function renderCatalogo(genero = 'todos') {
+      const grid = document.getElementById('catalogo-grid');
+      let lista = LIBROS;
+
+      if (genero !== 'todos') {
+        lista = LIBROS.filter(l => l.genero === genero);
+      }
+
+      if (lista.length === 0) {
+        grid.innerHTML = '<div class="cargando">No hay libros en esta categoría por ahora.</div>';
+        return;
+      }
+
+      grid.innerHTML = lista.map(libro => `
+        <div class="libro-card">
+          <div class="portada-wrap">
+            <img src="${urlPortada(libro.isbn)}" alt="Portada de ${libro.titulo}" loading="lazy" onerror="this.src='https://placehold.co/300x450/2D4A3E/F5F0E6?text=${encodeURIComponent(libro.titulo.substring(0,20))}'">
+            ${libro.adaptacion !== 'No' ? `<span class="badge-descuento" style="background:var(--verde-salvia);font-size:0.65rem;">Adaptación</span>` : ''}
+          </div>
+          <div class="libro-info">
+            <div class="libro-titulo">${libro.titulo}</div>
+            <div class="libro-autor">${libro.autor}</div>
+            <div class="libro-desc">${libro.desc}</div>
+            ${libro.adaptacion !== 'No' ? `<span class="adaptacion-tag">📽 ${libro.adaptacion}</span>` : ''}
+            <div class="libro-meta">
+              <span class="precio">$${libro.precio.toFixed(2)} <small>/ alquiler $${libro.alquiler.toFixed(2)}</small></span>
+              <span class="estrellas">★ ${libro.rating} <span>(${libro.opiniones})</span></span>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // ============================================================
+    // FILTROS
+    // ============================================================
+    document.getElementById('filtros').addEventListener('click', function(e) {
+      if (e.target.classList.contains('filtro-btn')) {
+        document.querySelectorAll('.filtro-btn').forEach(b => b.classList.remove('activo'));
+        e.target.classList.add('activo');
+        const genero = e.target.dataset.genero;
+        renderCatalogo(genero);
+      }
+    });
+
+    // ============================================================
+    // FAQ ACORDEÓN
+    // ============================================================
+    function toggleFaq(el) {
+      const item = el.parentElement;
+      item.classList.toggle('abierto');
+    }
+
+    // ============================================================
+    // FORMULARIO QUEJAS (simulación)
+    // ============================================================
+    function enviarQueja(e) {
+      e.preventDefault();
+      alert('Gracias por tu mensaje. Tu ' + (e.target.querySelector('select').value || 'comentario') + ' ha sido registrado. Te contactaremos pronto.');
+      e.target.reset();
+    }
+
+    // ============================================================
+    // INICIALIZACIÓN
+    // ============================================================
+    document.addEventListener('DOMContentLoaded', function() {
+      renderTopVentas();
+      renderCatalogo('todos');
+    });
+  </script>
+
+</body>
+</html>
